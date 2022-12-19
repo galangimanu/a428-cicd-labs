@@ -1,15 +1,11 @@
 node {
     docker.image('node:lts-bullseye-slim').inside {
-        stage('Test') {
-            //...
+        stage('build') {
+            sh 'npm install'
         }
     }
 
-    stage('Build') {
-            sh 'npm install'
-        }
-
-        stage('Test') {
+        stage('test') {
             sh './jenkins/scripts/test.sh'
         }
 

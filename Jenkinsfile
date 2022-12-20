@@ -1,7 +1,5 @@
 node {
-    docker.image('node:lts-bullseye-slim').inside {
-        
-    }
+    docker.image('node:lts-bullseye-slim')
 
         stage('build') {
             sh './jenkins/scripts/npm_install.sh'

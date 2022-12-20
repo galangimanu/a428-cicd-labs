@@ -3,7 +3,6 @@ node {
         
     }
 
-    {
         stage('build') {
             sh './jenkins/scripts/npm_install.sh'
     }

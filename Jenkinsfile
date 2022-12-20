@@ -1,15 +1,12 @@
-pipeline {
-    agent {
-        docker {
-            image 'node:lts-bullseye-slim' 
-            args '-p 3000:3000' 
-        }
+node {
+    docker.image('node:lts-bullseye-slim')
+
+        stage('build') {
+            sh './jenkins/scripts/npm_install.sh'
     }
-    stages {
-        stage('Build') { 
-            steps {
-                sh 'npm install' 
-            }
+
+        stage('test') {
+            sh './jenkins/scripts/test.sh'
         }
-    }
+
 }
